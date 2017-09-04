@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="formModule">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ionicons\css\ionicons.css">
+
+    <!--Mine-->
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="custom.css" rel="stylesheet" type="text/css" media="all">
+
+    <!--Optional-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="bootstrap\dist\js\bootstrap.min.js"></script>
+
+    <!--Angular-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.js"></script>
+    <script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+    <script src="rzslider.min.js"></script>
+    <link href="rzslider.min.css" rel="stylesheet" type="text/css" media="all">
+
+    <script src="app.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse head-foot" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="index.html">FOR HIPSTERS </a>
+                <a class="nav-item nav-link" href="https://www.swedbank.lt">FOR OTHERS</a>
+            </div>
+        </div>
+    </nav>
+
+    <div name="questionsForm" class="container" ng-controller="FormController as formCtrl">
+        <img src="images/backgrounds/logo.png" class="img-logo" alt="Swedbank">
+        <div class="box" ng-controller="QuestionsController as questionsCtrl">
+            <div ng-show="questionsCtrl.isQuestion(0)">
+                <h2>{{formCtrl.text.title}}</h2>
+                <p class="intro">
+                    {{formCtrl.text.intro}}
+                </p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="images/pencil.png" class="img-tutorial">
+                        <p> {{formCtrl.text.firstPic}} </p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/clock2.png" class="img-tutorial">
+                        <p> {{formCtrl.text.secondPic}} </p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/money-bag.png" class="img-tutorial">
+                        <p> {{formCtrl.text.thirdPic}} </p>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-black-noradius margin-t-10p" ng-click="questionsCtrl.setQuestion(1)">FILL IN THE FORM</button>
+            </div>
+
+            <form class="first-question" ng-show="questionsCtrl.isQuestion(1)" novalidate>
+                <p class="question">
+                    {{formCtrl.text.firstQuestion}}
+                </p>
+                <rzslider class="rzslider rz-pointer mre-mine" rz-slider-model="questionsCtrl.answers.first"
+                          rz-slider-options="sliderAmount.options"></rzslider>
+                <div class="row margins-8p">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="input-group">
+                            <input ng-model="questionsCtrl.answers.first" type="number" class="form-control input-borders" min="700" max="2000">
+                            <span class="input-group-addon input-borders">&euro;</span>
+                        </div>
+                        <div ng-hide="questionsCtrl.isValid" class="error">
+                            {{formCtrl.text.firstError}}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+            </form>
+
+            <div ng-show="questionsCtrl.isQuestion(2)">
+                <p class="question">
+                    {{formCtrl.text.secondQuestion}}
+                </p>
+                <rzslider class="rzslider rz-pointer mre-mine" rz-slider-model="questionsCtrl.answers.second"
+                          rz-slider-options="sliderPeriod.options"></rzslider>
+                <div class="row margins-8p">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="input-group">
+                            <input ng-model="questionsCtrl.answers.second" type="number" class="form-control input-borders" min="48" max="60">
+                            <span class="input-group-addon input-borders"> months</span>
+                        </div>
+                        <div ng-hide="questionsCtrl.isValid" class="error">
+                            {{formCtrl.text.secondError}}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="questionsCtrl.isQuestion(3)">
+                <p class="question">
+                    {{formCtrl.text.thirdQuestion}}
+                </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="custom-control custom-radio">
+                            <input id="radio1" name="radio" type="radio" class="custom-control-input" ng-model="questionsCtrl.answers.third" ng-value=true>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Yes, I do have</span>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="custom-control custom-radio">
+                            <input id="radio2" name="radio" type="radio" class="custom-control-input" ng-model="questionsCtrl.answers.third" ng-value=false>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description"> No, I do not have at current time</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="questionsCtrl.isQuestion(4)">
+                <div ng-show="questionsCtrl.answers.third">
+                    <p class="question">
+                        {{formCtrl.text.fourthQuestionHasJob}}
+                    </p>
+                    <div class="row margins-8p">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="input-group">
+                                <input ng-model="questionsCtrl.answers.fourthSalary" type="number" class="form-control input-borders" min="1">
+                                <span class="input-group-addon input-borders">&euro;</span>
+                            </div>
+                            <div ng-hide="questionsCtrl.isValid" class="error">
+                                {{formCtrl.text.fourthErrorHasJob}}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>
+                </div>
+                <div ng-hide="questionsCtrl.answers.third">
+                    <p class="question">
+                        {{formCtrl.text.fourthQuestionHasNotJob}}
+                    </p>
+                    <label class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" ng-model="questionsCtrl.answers.fourthSearch" ng-value="'know'">
+                        <span class="custom-control-indicator"></span>
+                        <input ng-model="questionsCtrl.answers.fourthSalary" type="number" class="form-control input-borders" min="1">
+                        <span class="input-group-addon input-borders">&euro;</span>
+                    </label>
+                    <br />
+                    <div ng-hide="questionsCtrl.isValid" class="error">
+                        {{formCtrl.text.fourthErrorHasNotJob}}
+                    </div>
+                    <label class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" ng-model="questionsCtrl.answers.fourthSearch" ng-value="'dknow-yes'">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">I do not know yet, but I am searching for new job</span>
+                    </label>
+                    <br/>
+                    <label class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" ng-model="questionsCtrl.answers.fourthSearch" ng-value="'dknow-no'">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">I do not know, I am not searching for new job</span>
+                    </label>
+                </div>
+            </div>
+
+            <div ng-show="questionsCtrl.isQuestion(5)">
+                <p class="question">
+                    {{formCtrl.text.fifthQuestion}}
+                </p>
+                <div class="row margins-8p">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <select class="selectpicker" ng-model="questionsCtrl.answers.fifthPrefix">
+                                <option ng-value="'+370'">+370</option>
+                                <option ng-value="'+371'">+371</option>
+                                <option ng-value="'+372'">+372</option>
+                                <option ng-value="'+46'">+46</option>
+                            </select>
+                            <input ng-model="questionsCtrl.answers.fifthNumber" type="number" class="form-control input-borders">
+                        </div>
+                        <div ng-hide="questionsCtrl.isValid" class="error">
+                            {{formCtrl.text.fifthError}}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="questionsCtrl.isQuestion(6)">
+                <p class="question">
+                    {{formCtrl.text.checkData}}
+                </p>
+                <div>
+                    You want to take <b>{{questionsCtrl.answers.first}} &euro;</b> loan and pay back per <b>{{questionsCtrl.answers.second}}</b> months
+                </div>
+
+                <div ng-show="questionsCtrl.answers.third">
+                    You <b>have</b> a job and your salary per month is <b>{{questionsCtrl.answers.fourthSalary}}</b> &euro;
+                </div>
+                <div ng-hide="questionsCtrl.answers.third">
+                    <div ng-show="questionsCtrl.answers.fourthSearch == 'know'">
+                        You <b>do not have</b> a job but you know your next salary per month will be <b>{{questionsCtrl.answers.fourthSalary}}</b> &euro;
+                    </div>
+                    <div ng-show="questionsCtrl.answers.fourthSearch == 'dknow-yes'">
+                        You <b>do not have</b> a job and you have no idea about your salary in next job but you are <b>searching</b> for it currently
+                    </div>
+                    <div ng-show="questionsCtrl.answers.fourthSearch == 'dknow-no'">
+                        You <b>do not have</b> a job and you have no idea about your salary in next job because you are <b>not searching</b> for it currently
+                    </div>
+                </div>
+                <div>
+                    Your contact phone number is <b>{{questionsCtrl.answers.fifthPrefix}} {{questionsCtrl.answers.fifthNumber}}</b>
+                </div>
+                <button type="button" class="btn btn-black-noradius margin-t-10p" ng-click="questionsCtrl.submitForm()">SUBMIT THE ANSWERS</button>
+            </div>
+
+            <div ng-show="questionsCtrl.isQuestion(7)">
+                <h2>{{formCtrl.text.lastWord}}</h2>
+                <p class="intro">
+                    {{formCtrl.text.feedback}}
+                </p>
+
+                <div class="row margins-8p">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="image" src="images/hap.png" class="img-tutorial" alt="Next" ng-click="questionsCtrl.addThumbsUp()" />
+                    </div>
+                    <div class="col-md-4">
+                        <input type="image" src="images/emb.png" class="img-tutorial" alt="Next" ng-click="questionsCtrl.addThumbsDown()" />
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" ng-hide="questionsCtrl.isQuestion(0) || questionsCtrl.isQuestion(7)">
+                <div class="col-md-2">
+                    <input type="image" src="images/left.png" class="img-tutorial" alt="Back" ng-click="questionsCtrl.goBack()" ng-hide="questionsCtrl.isQuestion(1)" />
+                </div>
+                <div class="col-md-8">
+                    <div class="progress margin-t-5p noradius">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated background-black" role="progressbar" ng-style="{width : ( questionsCtrl.progress + '%' ) }"
+                             aria-valuenow="{{questionsCtrl.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <input type="image" src="images/right.png" class="img-tutorial" alt="Next" ng-click="questionsCtrl.validateAnswer()" ng-hide="questionsCtrl.isQuestion(6)" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar bg-black head-foot footer-position">
+        <div id="footer">
+            <div class="contact">Help Desk:</div>
+            <div class="contact"><i class="icon ion-ios-telephone"></i> +370 6481 4781</div>
+            <div class="contact"><i class="icon ion-email"></i> laura.silvanaviciute@gmail.com</div>
+        </div>
+    </nav>
+</body>
+</html>
