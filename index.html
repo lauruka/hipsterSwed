@@ -236,7 +236,7 @@
                 <div>
                     Your contact phone number is <b>{{questionsCtrl.answers.fifthPrefix}} {{questionsCtrl.answers.fifthNumber}}</b>
                 </div>
-                <button type="button" class="btn btn-black-noradius margin-t-10p" ng-click="questionsCtrl.submitForm()">SUBMIT THE ANSWERS</button>
+                <button type="button" class="btn btn-black-noradius margin-t-10p" ng-click="questionsCtrl.submitForm()">SUBMIT</button>
             </div>
 
             <div ng-show="questionsCtrl.isQuestion(7)">
@@ -260,16 +260,16 @@
             </div>
 
             <div class="row" ng-hide="questionsCtrl.isQuestion(0) || questionsCtrl.isQuestion(7)">
-                <div class="col-md-2">
+                <div class="col-2">
                     <input type="image" src="images/left.png" class="img-tutorial" alt="Back" ng-click="questionsCtrl.goBack()" ng-hide="questionsCtrl.isQuestion(1)" />
                 </div>
-                <div class="col-md-8">
+                <div class="col-8">
                     <div class="progress margin-t-5p noradius">
                         <div class="progress-bar progress-bar-striped progress-bar-animated background-black" role="progressbar" ng-style="{width : ( questionsCtrl.progress + '%' ) }"
                              aria-valuenow="{{questionsCtrl.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-2">
                     <input type="image" src="images/right.png" class="img-tutorial" alt="Next" ng-click="questionsCtrl.validateAnswer()" ng-hide="questionsCtrl.isQuestion(6)" />
                 </div>
             </div>
