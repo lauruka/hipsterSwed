@@ -6,13 +6,18 @@
     });
 
     app.controller('QuestionsController', function ($scope) {
-        var ctrlScope = this;
         this.question = 0;
         this.progress = 15;
         this.isValid = true;
         this.thumbsUp = 0;
         this.thumbsDown = 0;
-        ctrlScope.answers = defaultAnswers;
+        this.answers = {
+            first: 700,
+            second: 48,
+            third: true,
+            fourthSearch: "know",
+            fifthPrefix: "+370",
+        };
 
         this.addThumbsUp = function(){
             this.thumbsUp++;
@@ -45,7 +50,7 @@
         this.validateAnswer = function () {
             switch (this.question) {
                 case 1:
-                    if ((ctrlScope.answers.first >= 700) && (ctrlScope.answers.first <= 2000)) {
+                    if ((this.answers.first >= 700) && (this.answers.first <= 2000)) {
                         this.setQuestion(this.question + 1);
                         this.setValidation(true);
                     }
@@ -54,7 +59,7 @@
                     }
                     break;
                 case 2:
-                    if ((ctrlScope.answers.second >= 48) && (ctrlScope.answers.second <= 60)) {
+                    if ((this.answers.second >= 48) && (this.answers.second <= 60)) {
                         this.setQuestion(this.question + 1);
                         this.setValidation(true);
                     }
@@ -66,7 +71,7 @@
                     this.setQuestion(this.question + 1);
                     break;
                 case 4:
-                    if ((ctrlScope.answers.fourthSalary >= 1) || (ctrlScope.answers.fourthSearch === 'dknow-yes') || (ctrlScope.answers.fourthSearch === 'dknow-no')) {
+                    if ((this.answers.fourthSalary >= 1) || (this.answers.fourthSearch === 'dknow-yes') || (this.answers.fourthSearch === 'dknow-no')) {
                         this.setQuestion(this.question + 1);
                         this.setValidation(true);
                     }
@@ -75,8 +80,8 @@
                     }
                     break;
                 case 5:
-                    if (ctrlScope.answers.fifthPrefix === '+46') {
-                        if ((ctrlScope.answers.fifthNumber > 1) && (ctrlScope.answers.fifthNumber.toString().length >= 6) && (ctrlScope.answers.fifthNumber.toString().length <= 9)) {
+                    if (this.answers.fifthPrefix === '+46') {
+                        if ((this.answers.fifthNumber > 1) && (this.answers.fifthNumber.toString().length >= 6) && (this.answers.fifthNumber.toString().length <= 9)) {
                             this.setQuestion(this.question + 1);
                             this.setValidation(true);
                         }
@@ -85,7 +90,7 @@
                         }
                     }
                     else {
-                        if ((ctrlScope.answers.fifthNumber > 1) && (ctrlScope.answers.fifthNumber.toString().length === 8)) {
+                        if ((this.answers.fifthNumber > 1) && (this.answers.fifthNumber.toString().length === 8)) {
                             this.setQuestion(this.question + 1);
                             this.setValidation(true);
                         }
@@ -101,13 +106,18 @@
         };
 
         this.submitForm = function () {
-            ctrlScope.answers = defaultAnswers;
+            this.answers = {
+                first: 700,
+                second: 48,
+                third: true,
+                fourthSearch: "know",
+                fifthPrefix: "+370",
+            };
             this.setValidation(true);
             this.setQuestion(7);
         }
 
         $scope.sliderAmount = {
-            value: 1350,
             options: {
                 floor: 700,
                 ceil: 2000,
@@ -116,7 +126,6 @@
         };
 
         $scope.sliderPeriod = {
-            value: 48,
             options: {
                 floor: 48,
                 ceil: 60,

@@ -161,7 +161,11 @@
     }
 
     .img-logo {
-        max-width: 50%;
+        max-width: 85%;
+    }
+
+    .img-tutorial {
+        max-width: 250%;
     }
 }
 
