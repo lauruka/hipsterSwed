@@ -143,24 +143,24 @@
     };
 
     var text = {
-        title: "Do you need some money?",
-        intro: "Don't worry, Swedbank is ready to help you! Complete the quick application, wait for our call and enjoy your life with full pockets of money. Too cool to be true? See it for yourself!",
+        title: "Are you in need of some extra money?",
+        intro: "Don't worry, Swedbank is ready to help you out! Complete a quick application, wait for our call and enjoy your life with full pockets of money. Too good to be true? See for yourself!",
         firstPic: "Answer few questions",
         secondPic: "Wait for our call",
         thirdPic: "Take your money",
-        firstQuestion: "What amount of money (in euros) would you like to take?",
+        firstQuestion: "How much money would you like to receive (in euros)?",
         firstError: "The amount has to be between 700 - 2000 euros",
-        secondQuestion: "For what period of months you would like to give back the loan?",
+        secondQuestion: "How much time would you need to return the loan (in months)?",
         secondError: "The period has to be between 48 - 60 months",
-        thirdQuestion: "Do you have a job at the current time?",
-        fourthQuestionHasJob: "What is your monthly salary after deduction of taxes?",
+        thirdQuestion: "What is your current employment status?",
+        fourthQuestionHasJob: "What is your monthly salary after tax deduction?",
         fourthErrorHasJob: "Please, enter your salary",
-        fourthQuestionHasNotJob: "What will be your monthly salary of next job after deduction of taxes?",
+        fourthQuestionHasNotJob: "What do you think your next job salary will be after tax deduction?",
         fourthErrorHasNotJob: "Please, enter correct salary",
-        fifthQuestion: 'The last question - what is your contact phone number?',
-        fifthError: 'Wrong length of entered phone number',
-        checkData: "Almost done! Just check the the final information of your inquired application for a loan and submit it",
-        lastWord: "That's all - we got your application!",
-        feedback: "But before leaving could you give us your your personal opinion how much do you like this way to ask for a loan?"
+        fifthQuestion: 'What is your contact phone number?',
+        fifthError: 'Wrong phone number digits length',
+        checkData: "Almost done! Confirm the final information of your application for a loan",
+        lastWord: "That's all - we got your application! Now wait for our call!",
+        feedback: "Please let us know if you liked the proccess of this loan request"
     }
 })();

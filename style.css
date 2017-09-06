@@ -1,10 +1,25 @@
+.w-70p {
+    width: 70%;
+}
+
+.w-30p {
+    width: 30%;
+}
+
+.font-xl {
+    font-size: x-large;
+}
 
 .bg-black {
     background-color: #000000 !important;
 }
 
-.pad-l15 {
-    padding-left: 15%;
+.pad-b4p {
+    padding-bottom: 4%;
+}
+
+.margin-auto {
+    margin: auto;
 }
 
 .margin-t-10p {
@@ -17,7 +32,12 @@
 
 .margins-8p {
     margin-top: 8%;
-    margin-bottom: 8%
+    margin-bottom: 8%;
+}
+
+.margins-6p {
+    margin-top: 6%;
+    margin-bottom: 6%;
 }
 
 .background-black {
@@ -28,32 +48,42 @@
     border-radius: 0;
 }
 
-/*.margin-b-10p {
-    margin-bottom: 10%;
-}*/
-
-/*.btn.btn-square {
-    border-radius: 0;
-}*/
-
-/*.pad-r15 {
-    padding-right: 15px;
-}*/
-
-/*.uppercase-text {
-    text-transform: uppercase;
-}*/
-
-/*.inline-block {
-    display: inline-block;
-}*/
-
 /************NOT REUSABLE CSS***************/
-.footer-position {
+html {
+    min-height: 100%;
     position: relative;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
+}
+
+body {
+    margin-bottom: 6rem;
+    background-image: url('images/backgrounds/ny.jpg');
+    font-family: 'Trebuchet MS';
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.box .rzslider .rz-bar-wrapper .rz-bar {
+    background: black;
+}
+
+.box .rzslider {
+    width: 85%;
+}
+
+    .box .rzslider .rz-pointer {
+        background-color: #007bff;
+    }
+
+        .box .rzslider .rz-pointer .mre-mine {
+            background-color: black;
+        }
+
+.footer-position {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
 }
 
 #footer {
@@ -61,6 +91,11 @@
     font-size: 12px;
     color: white;
     text-transform: uppercase;
+}
+
+.answer-label {
+    margin: auto;
+    font-size: xx-large;
 }
 
 .contact {
@@ -89,26 +124,29 @@
 
 .box {
     text-transform: uppercase;
-    border: 1px solid;
-    padding: 5%;
-    margin-bottom: 10%;
+    background-color: rgba(255, 254, 252, 0.81);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    margin-top: 3rem;
+    border-radius: 3px;
 }
 
 .btn-black-noradius {
     background-color: black;
     color: white;
-    border-radius: 0;
 }
 
     .btn-black-noradius:hover {
         background-color: white;
-        border: 1px solid;
+        border: 2px solid;
         color: black;
     }
 
 .intro {
-    margin-top: 8%;
-    margin-bottom: 8%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .question {
@@ -116,32 +154,41 @@
     margin-bottom: 5%;
 }
 
-.rzslider .rz-pointer .mre-mine {
-    background-color: black;
+.box .selectpicker {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
 }
 
 .input-borders {
-    border-radius: 0;
-    border-color: black;
     text-align: center;
+    background: rgba(255, 255, 255, 0.67);
 }
 
 .error {
-    font-size: 10px;
-    color: #d71659;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
 }
+
+.small-screen-buttons-wrapper {
+    display: none;
+}
+
+.small-screen-button {
+    margin: auto;
+}
+
+.small-screen-slider {
+    display: block;
+}
+
+/************MEDIA QUERIES***************/
 
 @media (min-width: 4000px) {
     .footer-position {
         position: absolute;
     }
 }
-
-/*@media (min-height: 1024px) and (orientation: portait) {
-    .footer-position {
-        position: absolute;
-    }
-}*/
 
 @media (min-width: 992px) {
     .head-foot {
@@ -153,6 +200,22 @@
     .img-logo {
         max-width: 30%;
     }
+
+    .small-screen-buttons-wrapper {
+        display: block;
+    }
+
+    .big-screen-buttons {
+        display: none;
+    }
+
+    .progress {
+        margin: auto;
+        width: 80%;
+    }
+    .font-xl {
+    font-size: medium;
+}
 }
 
 @media (max-width: 575px) {
@@ -161,11 +224,11 @@
     }
 
     .img-logo {
-        max-width: 85%;
+        max-width: 60%;
     }
 
-    .img-tutorial {
-        max-width: 250%;
+    .container {
+        max-width: 95%;
     }
 }
 
